@@ -114,8 +114,8 @@ export function CodexTable() {
     },
   }));
 
-  //#endregion
-  
+  //#endregion ???
+
   // Turn this into a const or something
   async function handlePage(e) {
     let url = `https://ms2db.bootando.com/api/items?page=${e}&name=${searchTerm}`;

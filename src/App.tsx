@@ -1,4 +1,5 @@
-import { CodexTable } from "./component/CodexTable";
+import CodexPage from './Pages/Codex'
+
 import {
   AppBar,
   Toolbar,
@@ -13,7 +14,7 @@ export const App = () => {
         </Toolbar>
       </AppBar>
       <div style={{overflowY: 'auto'}}>
-      <CodexTable></CodexTable>
+      <CodexPage />
       </div>
     </div>
   );
