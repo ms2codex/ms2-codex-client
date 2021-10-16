@@ -1,21 +1,27 @@
-import CodexPage from './Pages/Codex'
 
 import {
   AppBar,
   Toolbar,
 } from "@mui/material";
 
-export const App = () => {
+import Layout from './containers/Layout'
+import CodexPage from './Pages/Codex'
+import Page404 from './Pages/Page404'
+
+import {Switch, Route, BrowserRouter, Link, Redirect} from "react-router-dom";
+
+const App = () => {
   return (
-    <div>
-      <AppBar style={{position: "sticky"}} sx={{background: 'orange'}}>
-        <Toolbar variant="dense" sx={{display: 'flex', justifyContent: 'center'}}>
-        <img src={require('../public/pictures/site_logo.png')}></img>
-        </Toolbar>
-      </AppBar>
-      <div style={{overflowY: 'auto'}}>
-      <CodexPage />
-      </div>
-    </div>
-  );
-};
+    <Layout>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={CodexPage} />
+
+          <Route path="*" component={Page404} status={404} />
+        </Switch>
+      </BrowserRouter>
+    </Layout>
+  )
+}
+
+export default App
