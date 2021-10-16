@@ -2,9 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.jsx'),
+  entry: path.resolve(__dirname, '..', './src/index.tsx'),
   resolve: {
-    extensions: ['.jsx', '.ts', '.js'],
+    extensions: ['.tsx','.jsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html'),
+      template: path.resolve(__dirname, '..', './public/index.html'),
     }),
   ],
   stats: 'errors-only',
