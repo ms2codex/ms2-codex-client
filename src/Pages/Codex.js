@@ -21,6 +21,7 @@ const CodexPage = (props) => {
   const [searchId, setSearchId] = useState(0);
   const [tab, setTab] = useState("");
   const [filteredJob, setJob] = useState("-")
+  const [slot, setSlot] = useState("-")
   const [pasted, setPasted] = useState(false);
 
   // headings for table
@@ -41,6 +42,7 @@ const CodexPage = (props) => {
         // if there is a tab value, use it, if not, don't
         tab: tab != '-' && tab ? tab : "",
         jobs: filteredJob != '-' ? filteredJob : "",
+        slot: slot != '-' ? slot : "",
         page_size: 10,
       }
       axios("https://ms2db.bootando.com/api/items", { params }, {
@@ -67,7 +69,7 @@ const CodexPage = (props) => {
       didMountPage.current = true
     }
     // do this when the tab (category) or the job filter change
-  }, [tab, filteredJob]);
+  }, [tab, filteredJob, slot]);
 
   // search terms: debounce after the inital load
   const didMountRef = useRef(false);
@@ -129,6 +131,8 @@ const CodexPage = (props) => {
     handlePage(value);
   };
 
+
+  // Filters can probably be refactored to have one handler for all filters
   // tab = category, passed to filter child which has dropdown
   const handleTabSelect = (event) => {
     history.push(event.target.value)
@@ -141,9 +145,17 @@ const CodexPage = (props) => {
     setJob(event.target.value)
   }
 
+  // for filter changes that don't imapact the url
+  const handleSlotChange = (event) => {
+    setSlot(event.target.value)
+  }
+
   return (
     <div>
-      <FilterContainer handleFilterChange={handleFilterChange} handleTabSelect={handleTabSelect} tab={tab} filteredJob={filteredJob}></FilterContainer>
+      <FilterContainer handleFilterChange={handleFilterChange} handleTabSelect={handleTabSelect} handleSlotChange={handleSlotChange} 
+      tab={tab}
+      filteredJob={filteredJob}
+      slot={slot}></FilterContainer>
       <div
         style={{
           display: "flex",

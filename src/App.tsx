@@ -17,6 +17,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={CodexPage} />
+          <Route exact path="/:page" component={CodexPage} />
           <Route path="/item/:id" component={ItemPage} />
           
           <Route path="*" component={Page404} status={404} />
