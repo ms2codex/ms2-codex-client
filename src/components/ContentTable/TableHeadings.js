@@ -28,6 +28,7 @@ const TableHeadings = ({ headings }) => {
           <TopCell
             style={{ borderRight: "1px solid #444446" }}
             align="left"
+            key={heading}
           >
             {heading}
           </TopCell>

@@ -2,7 +2,7 @@ import {styled} from "@mui/material/styles";
 import TableCell from "@mui/material/TableCell";
 
 const CustomCell = styled(TableCell)(({ theme }) => ({
-  fontSize: 15,
+  fontSize: 13,
   color: "#FFFFFF",
   borderBottom: "1px solid #6e6e70",
 }));

@@ -2,6 +2,7 @@ import React from 'react'
 import TableBody from "@mui/material/TableBody";
 import CustomCell from "./CustomCell";
 import CustomRow from "./CustomRow";
+import { Link } from 'react-router-dom';
 
 const TableContent = ({ data }) => { /// this should be customized to accept data dynamically but for now it'll do
   return (
@@ -20,14 +21,14 @@ const TableContent = ({ data }) => { /// this should be customized to accept dat
               }}
             >
               <img
-                style={{ maxHeight: "5vh", maxWidth: "5vh" }} // this should be made a styled cmponent
+                style={{ maxHeight: "3vh", maxWidth: "3vh" }} // this should be made a styled cmponent
                 src={`https://ms2db.bootando.com${slot_icon}`}
                 onError={(e)=>{e.target.src="https://ms2db.bootando.com/item/icon/customize/10400209.png"}} // you cannot set default like this and it's not clear what you want to do
               >
               </img>
             </div>
           </CustomCell>
-          <CustomCell align="left">{name}</CustomCell>
+          <CustomCell align="left"><Link to={() => `item/${item_id}`}>{name}</Link></CustomCell>
           <CustomCell align="left">{slot}</CustomCell>
         </CustomRow>
       ))}
